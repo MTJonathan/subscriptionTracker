@@ -12,6 +12,9 @@ const AddSubscription = ({
 }: DataSuscriptionProps) => {
   const [service, setService] = useState<string>("");
   const [price, setPrice] = useState<number | undefined>(undefined);
+  const [subscriptions, setSubscriptions] = useState<
+    { img: string; price: string }[]
+  >([]);
   return (
     <div>
       <section className="containerDataSuscription">
@@ -23,20 +26,40 @@ const AddSubscription = ({
           setSpentBudget={setSpentBudget}
           setAvailableBudget={setAvailableBudget}
         />
-      <FormSubscription
-        spentBudget={spentBudget}
-        availableBudget={availableBudget}
-        setSpentBudget={setSpentBudget}
-        setAvailableBudget={setAvailableBudget}
-        price={price}
-        service={service}
-        setService={setService}
-        setPrice={setPrice}
-      />
+        <FormSubscription
+          spentBudget={spentBudget}
+          availableBudget={availableBudget}
+          setSpentBudget={setSpentBudget}
+          setAvailableBudget={setAvailableBudget}
+          price={price}
+          service={service}
+          setService={setService}
+          setPrice={setPrice}
+          setSubscriptions={setSubscriptions}
+          subscriptions={subscriptions}
+        />
       </section>
       <section className="containerSuscriptions">
-        <h2>Suscripciones</h2>
+        <header>
+          <h2>Suscripciones</h2>
+        </header>
 
+        <div className="containerlistSuscriptions">
+          {subscriptions.map((subscription, index) => (
+            <div className="listSuscription" key={index}>
+              <picture>
+                <img src={subscription.img} />
+              </picture>
+              <div>
+                <p>Precio: {subscription.price}</p>
+              </div>
+              <div className="buttons">
+                <button>Eliminar</button>
+                <button>Editar</button>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );

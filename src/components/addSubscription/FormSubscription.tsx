@@ -9,15 +9,21 @@ const formSubscription = ({
   service,
   setService,
   setPrice,
+  subscriptions,
+  setSubscriptions,
 }: FormSubscriptionProps) => {
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const imgService = `/img/${service}.png`;
 
     if(price){
       setSpentBudget(spentBudget + price);
       setAvailableBudget(availableBudget - price);
+      setSubscriptions([...subscriptions, {img: imgService, price: price.toFixed(2)}]);
     }
+    setService("");
+    setPrice(undefined);
   }
   return (
     <form className="formSubscription" onSubmit={handleSubmit}>
@@ -34,9 +40,12 @@ const formSubscription = ({
           ---ELEGIR---
         </option>
         <option value="netflix">Netflix</option>
-        <option value="disney+">Disney+</option>
+        <option value="disneyPlus">Disney+</option>
+        <option value="hboMax">HBO Max</option>
+        <option value="apletv">Apple TV+</option>
         <option value="spotify">Spotify</option>
-        <option value="amazon prime">Amazon Prime</option>
+        <option value="primeVideo">Prime Video</option>
+        <option value="starPlus">Star Plus</option>
       </select>
 
       <label htmlFor="price">Precio</label>

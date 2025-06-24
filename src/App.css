@@ -9,10 +9,11 @@
 .container {
   background: linear-gradient(to right, #2fa4e4 0%, #5dcfd0 100%);
   border-radius: 20px;
-  padding: 20px 50px;
+  padding: 20px 0px;
   color: white;
   text-align: center;
   box-shadow: 0 0 10px #2fa4e4;
+  margin: 2rem 0;
 }
 .container header button{
   background-color: #111;
@@ -47,7 +48,7 @@
 .containerDataSuscription{
   display: grid;
   gap: 2rem;
-  margin: 1.2rem 0;
+  margin: 1.2rem 80px;
   grid-template-columns: repeat(2, 1fr);
 }
 .containerDataSuscription div{
@@ -89,3 +90,39 @@
   border: none;
   padding: 0.5rem;
 }
+
+.containerlistSuscriptions{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.listSuscription{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  color: #111;
+  margin: 0 20px;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.listSuscription div,
+.listSuscription picture{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.listSuscription .buttons{
+  display: flex;
+  gap: 1rem;
+}
+.listSuscription .buttons button{
+  background-color: #7fffd7;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 10px;
+}
+.listSuscription img{
+  width: 100px;
+}
+  
