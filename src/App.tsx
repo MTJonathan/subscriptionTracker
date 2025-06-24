@@ -9,11 +9,21 @@ function App() {
   const [availableBudget, setAvailableBudget] = useState(0);
   const [budgetOrSubscription, setBudgetOrSubscription] = useState(false);
 
+  const handleClose = () => {
+    setBudget(0);
+    setSpentBudget(0);
+    setAvailableBudget(0);
+    setBudgetOrSubscription(false);
+  };
+
   return (
     <main className="mainContainer">
       <section className="container">
         <header>
           <h1>Subscriptions Tracker</h1>
+          {budgetOrSubscription && (
+            <button onClick={handleClose}>Cerrar</button>
+          )}
         </header>
         {budgetOrSubscription ? (
           <AddSubscription

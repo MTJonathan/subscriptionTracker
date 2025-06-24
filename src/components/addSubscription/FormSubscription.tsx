@@ -1,14 +1,15 @@
-import type { DataSuscriptionProps } from "../../lib/type";
-import { useState } from "react";
+import type { FormSubscriptionProps } from "../../lib/type";
 
 const formSubscription = ({
   spentBudget,
   availableBudget,
   setSpentBudget,
   setAvailableBudget,
-}: DataSuscriptionProps) => {
-  const [service, setService] = useState<string>("");
-  const [price, setPrice] = useState<number | undefined>(undefined);
+  price,
+  service,
+  setService,
+  setPrice,
+}: FormSubscriptionProps) => {
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

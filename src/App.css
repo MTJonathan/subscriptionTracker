@@ -14,6 +14,15 @@
   text-align: center;
   box-shadow: 0 0 10px #2fa4e4;
 }
+.container header button{
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin: 8px 0;
+  font-weight: bold;
+}
 .container h1{
   font-size: 1.4rem;
   text-transform: uppercase;

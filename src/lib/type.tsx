@@ -6,3 +6,13 @@ export interface DataSuscriptionProps {
  setSpentBudget: React.Dispatch<React.SetStateAction<number>>;
  setAvailableBudget: React.Dispatch<React.SetStateAction<number>>;
 }
+export interface FormSubscriptionProps {
+  spentBudget: number;
+  availableBudget: number;
+  price: number | undefined;
+  service: string;
+  setService: React.Dispatch<React.SetStateAction<string>>;
+  setPrice: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setSpentBudget: React.Dispatch<React.SetStateAction<number>>;
+  setAvailableBudget: React.Dispatch<React.SetStateAction<number>>;
+}
