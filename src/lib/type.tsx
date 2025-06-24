@@ -11,10 +11,12 @@ export interface FormSubscriptionProps {
   availableBudget: number;
   price: number | undefined;
   service: string;
-  subscriptions: {img:string, price:string}[];
+  subscriptions: {img:string, price:string, service:string}[];
   setService: React.Dispatch<React.SetStateAction<string>>;
   setPrice: React.Dispatch<React.SetStateAction<number | undefined>>;
   setSpentBudget: React.Dispatch<React.SetStateAction<number>>;
   setAvailableBudget: React.Dispatch<React.SetStateAction<number>>;
-  setSubscriptions: React.Dispatch<React.SetStateAction<{img:string, price:string}[]>>;
+  setSubscriptions: React.Dispatch<React.SetStateAction<{img:string, price:string, service:string}[]>>;
+  editIndex: number | null;
+  setEditIndex: React.Dispatch<React.SetStateAction<number | null>>;
 }

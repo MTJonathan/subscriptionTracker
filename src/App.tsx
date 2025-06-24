@@ -18,7 +18,7 @@ function App() {
 
   return (
     <main className="mainContainer">
-      <section className="container">
+      <section style={{padding: budgetOrSubscription ? "20px 0px" : "20px 80px"}} className="container">
         <header>
           <h1>Subscriptions Tracker</h1>
           {budgetOrSubscription && (

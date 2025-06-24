@@ -13,8 +13,28 @@ const AddSubscription = ({
   const [service, setService] = useState<string>("");
   const [price, setPrice] = useState<number | undefined>(undefined);
   const [subscriptions, setSubscriptions] = useState<
-    { img: string; price: string }[]
+    { img: string; price: string; service: string }[]
   >([]);
+  const [editIndex, setEditIndex] = useState<number | null>(null);
+
+  const handleDelete = (index: number) => {
+    if (confirm("¿Estas seguro de eliminar esta suscripción?")) {
+      const newSubscriptions = [...subscriptions];
+      newSubscriptions.splice(index, 1);
+      setSubscriptions(newSubscriptions);
+    }
+  };
+
+  const handleEdit = (index: number) => {
+    const subscription = subscriptions[index];
+
+    // Cargar en los inputs
+    console.log(subscription);
+
+    setService(subscription.service);
+    setPrice(Number(subscription.price));
+    setEditIndex(index);
+  };
   return (
     <div>
       <section className="containerDataSuscription">
@@ -37,6 +57,8 @@ const AddSubscription = ({
           setPrice={setPrice}
           setSubscriptions={setSubscriptions}
           subscriptions={subscriptions}
+          editIndex={editIndex}
+          setEditIndex={setEditIndex}
         />
       </section>
       <section className="containerSuscriptions">
@@ -51,11 +73,11 @@ const AddSubscription = ({
                 <img src={subscription.img} />
               </picture>
               <div>
-                <p>Precio: {subscription.price}</p>
+                <p>Precio: ${subscription.price}</p>
               </div>
               <div className="buttons">
-                <button>Eliminar</button>
-                <button>Editar</button>
+                <button onClick={() => handleDelete(index)}>Eliminar</button>
+                <button onClick={() => handleEdit(index)}>Editar</button>
               </div>
             </div>
           ))}

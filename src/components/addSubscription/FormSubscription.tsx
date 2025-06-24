@@ -11,23 +11,46 @@ const formSubscription = ({
   setPrice,
   subscriptions,
   setSubscriptions,
+  editIndex,
+  setEditIndex,
 }: FormSubscriptionProps) => {
-  
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const imgService = `/img/${service}.png`;
 
-    if(price){
-      setSpentBudget(spentBudget + price);
-      setAvailableBudget(availableBudget - price);
-      setSubscriptions([...subscriptions, {img: imgService, price: price.toFixed(2)}]);
+    if (price) {
+      const newSubscription = {
+        img: imgService,
+        price: price.toFixed(2),
+        service:service,
+      };
+      console.log(newSubscription);
+
+      if (editIndex !== null) {
+        const updatedSubscriptions = subscriptions.map((subscription, index) => {
+          if (index === editIndex) {
+            return newSubscription;
+          }
+          return subscription;
+        });
+        setSubscriptions(updatedSubscriptions);
+        setEditIndex(null);
+      } else {
+        setSpentBudget(spentBudget + price);
+        setAvailableBudget(availableBudget - price);
+        setSubscriptions([
+          ...subscriptions,
+          newSubscription,
+        ]);
+      }
     }
     setService("");
     setPrice(undefined);
-  }
+    setEditIndex(null);
+  };
   return (
     <form className="formSubscription" onSubmit={handleSubmit}>
-      <h3>Agregar Suscripción</h3>
+      <h3>{editIndex !== null ? "Editar Suscripción" : "Agregar Suscripción"}</h3>
       <label htmlFor="service">Servicio</label>
       <select
         name="service"
@@ -54,7 +77,7 @@ const formSubscription = ({
         name="price"
         id="price"
         min={0}
-        step={'any'}
+        step={"any"}
         value={price}
         onChange={(e) => setPrice(Number(e.target.value))}
         placeholder="$20"
