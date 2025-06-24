@@ -1,42 +1,82 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.mainContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui;
+}
+
+.container {
+  background: linear-gradient(to right, #2fa4e4 0%, #5dcfd0 100%);
+  border-radius: 20px;
+  padding: 20px 50px;
+  color: white;
   text-align: center;
+  box-shadow: 0 0 10px #2fa4e4;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.container h1{
+  font-size: 1.4rem;
+  text-transform: uppercase;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.container h2{
+  font-size: 1rem;
+  font-weight: 600;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.formAddBudget{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 2rem;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.formAddBudget button{
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 0.3rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.containerDataSuscription{
+  display: grid;
+  gap: 2rem;
+  margin: 1.2rem 0;
+  grid-template-columns: repeat(2, 1fr);
 }
-
-.card {
-  padding: 2em;
+.containerDataSuscription div{
+  display: flex;
+  justify-content: center;
+  color: #111;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: start;
+  background: #c0e6f1;
+  padding: 1.8rem 1rem;
+  border-radius: 10px 40px;
 }
-
-.read-the-docs {
-  color: #888;
+.containerDataSuscription div span{
+  font-weight: bold;
+}
+.formSubscription{
+  display: grid;
+  gap: 8px;
+}
+.formSubscription h3{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+}
+.formSubscription label{
+  font-size: 0.9rem;
+}
+.formSubscription select,
+.formSubscription input{
+  text-align: center;
+  padding: 0.2rem;
+  outline: none;
+}
+.formSubscription button{
+  background-color: #111;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 0.5rem;
 }
