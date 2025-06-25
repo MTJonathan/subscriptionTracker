@@ -86,6 +86,9 @@
   padding: 0.2rem;
   outline: none;
 }
+.formSubscription select{
+  cursor: pointer;
+}
 .formSubscription button{
   background-color: #111;
   color: white;

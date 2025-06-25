@@ -34,7 +34,7 @@ const formSubscription = ({
     e.preventDefault();
     const imgService = `/img/${service}.png`;
 
-    if (price) {
+    if (price && availableBudget >= price) {
       const newSubscription = {
         img: imgService,
         price: price.toFixed(2),
@@ -59,6 +59,8 @@ const formSubscription = ({
           newSubscription,
         ]);
       }
+    }else{
+      alert("No tienes dinero suficiente")
     }
     setService("");
     setPrice(0);
