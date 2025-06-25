@@ -1,54 +1,49 @@
-# React + TypeScript + Vite
+# 📺 Subscriptions Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para gestionar y visualizar tus suscripciones mensuales, controlar tu presupuesto y tener claridad sobre tus gastos recurrentes en plataformas de streaming u otros servicios.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Agrega nuevas suscripciones (Netflix, Spotify, HBO Max, etc.).
+- ✏️ Edita y actualiza los precios o servicios existentes.
+- 🗑️ Elimina servicios que ya no usas.
+- 💰 Controla tu presupuesto total, gasto actual y saldo disponible.
+- 🔄 Datos persistentes con `localStorage`: tus suscripciones no se pierden al cerrar el navegador.
+- 🎯 Interfaz clara, rápida y responsive.
 
-## Expanding the ESLint configuration
+## 🖼️ Captura de Pantalla
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Captura de pantalla](/img/image.png)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Tecnologías Utilizadas
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **React** con TypeScript
+- **Vite** para desarrollo rápido
+- **CSS** para estilos
+- **LocalStorage** para persistencia de datos
+- Iconografía personalizada por servicio
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 Lógica Principal
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Cada vez que se agrega o edita una suscripción:
+  - Se calcula el nuevo presupuesto gastado y disponible.
+  - Se actualiza el estado global de las suscripciones.
+  - Se guardan los cambios automáticamente en `localStorage`.
+
+- Al iniciar la app:
+  - Se recuperan todos los datos previamente almacenados.
+
+## 🛠️ Instalación
+
+```bash
+# Clona el repositorio
+git clone https://github.com/tu-usuario/subscriptions-tracker.git
+
+# Entra al proyecto
+cd subscriptions-tracker
+
+# Instala dependencias
+npm install
+
+# Inicia el proyecto
+npm run dev
