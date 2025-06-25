@@ -1,6 +1,8 @@
 import type { FormSubscriptionProps } from "../../lib/type";
+import { useEffect } from "react";
 
 const formSubscription = ({
+  budget,
   spentBudget,
   availableBudget,
   setSpentBudget,
@@ -13,7 +15,21 @@ const formSubscription = ({
   setSubscriptions,
   editIndex,
   setEditIndex,
+  budgetOrSubscription,
 }: FormSubscriptionProps) => {
+
+  //Guardar en localStorage
+  useEffect(() => {
+    localStorage.setItem("subscriptions", JSON.stringify(subscriptions))
+    localStorage.setItem("budget", JSON.stringify(budget))
+    localStorage.setItem("spentBudget", JSON.stringify(spentBudget))
+    localStorage.setItem("availableBudget", JSON.stringify(availableBudget))
+    localStorage.setItem("editIndex", JSON.stringify(editIndex))
+    localStorage.setItem("service", JSON.stringify(service))
+    localStorage.setItem("price", JSON.stringify(price))
+    localStorage.setItem("budgetOrSubscription", JSON.stringify(budgetOrSubscription))
+  }, [subscriptions, budget, spentBudget, availableBudget, editIndex, service, price, budgetOrSubscription]);
+  
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const imgService = `/img/${service}.png`;
@@ -45,7 +61,7 @@ const formSubscription = ({
       }
     }
     setService("");
-    setPrice(undefined);
+    setPrice(0);
     setEditIndex(null);
   };
   return (
@@ -83,7 +99,7 @@ const formSubscription = ({
         placeholder="$20"
         required
       />
-      <button type="submit">Agregar</button>
+      <button type="submit">{editIndex !== null ? "Editar" : "Agregar"}</button>
     </form>
   );
 };

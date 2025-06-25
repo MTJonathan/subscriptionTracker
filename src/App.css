@@ -39,6 +39,9 @@
   gap: 1rem;
   margin: 1rem 2rem;
 }
+.formAddBudget input{
+  padding: 5px 10px;
+}
 .formAddBudget button{
   background-color: #111;
   color: white;
@@ -121,6 +124,13 @@
   border: none;
   padding: 5px 8px;
   border-radius: 10px;
+}
+.listSuscription .buttons button:nth-child(1):hover{
+  background-color: rgb(255, 83, 83);
+  color: white;
+}
+.listSuscription .buttons button:nth-child(2):hover{
+  background-color: rgb(255, 255, 0);
 }
 .listSuscription img{
   width: 100px;

@@ -1,7 +1,6 @@
 import DataSuscription from "./DataSuscription";
 import FormSubscription from "./FormSubscription";
-import type { DataSuscriptionProps } from "../../lib/type";
-import { useState } from "react";
+import type { AddSubscriptionProps } from "../../lib/type";
 const AddSubscription = ({
   budget,
   spentBudget,
@@ -9,13 +8,16 @@ const AddSubscription = ({
   setBudget,
   setSpentBudget,
   setAvailableBudget,
-}: DataSuscriptionProps) => {
-  const [service, setService] = useState<string>("");
-  const [price, setPrice] = useState<number | undefined>(undefined);
-  const [subscriptions, setSubscriptions] = useState<
-    { img: string; price: string; service: string }[]
-  >([]);
-  const [editIndex, setEditIndex] = useState<number | null>(null);
+  budgetOrSubscription,
+  service,
+  price,
+  subscriptions,
+  setService,
+  setPrice,
+  setSubscriptions,
+  editIndex,
+  setEditIndex,
+}: AddSubscriptionProps) => {
 
   const handleDelete = (index: number) => {
     if (confirm("¿Estas seguro de eliminar esta suscripción?")) {
@@ -59,6 +61,8 @@ const AddSubscription = ({
           subscriptions={subscriptions}
           editIndex={editIndex}
           setEditIndex={setEditIndex}
+          budgetOrSubscription={budgetOrSubscription}
+          budget={budget}
         />
       </section>
       <section className="containerSuscriptions">
