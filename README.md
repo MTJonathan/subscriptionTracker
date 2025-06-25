@@ -13,7 +13,7 @@ Aplicación web para gestionar y visualizar tus suscripciones mensuales, control
 
 ## 🖼️ Captura de Pantalla
 
-![Captura de pantalla](/img/image.png)
+![Captura de pantalla](./public/img/image.png)
 
 ## 🚀 Tecnologías Utilizadas
 
